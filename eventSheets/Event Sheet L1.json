@@ -1,0 +1,2252 @@
+{
+	"name": "Event Sheet L1",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Player Controls"
+		},
+		{
+			"eventType": "variable",
+			"name": "Score_lvl",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 889946120492054
+		},
+		{
+			"eventType": "variable",
+			"name": "ConnectionMade",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 294318910870718
+		},
+		{
+			"eventType": "variable",
+			"name": "DisablerCooldown",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 965808213231366
+		},
+		{
+			"eventType": "variable",
+			"name": "CurrentTime",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 811510963864400
+		},
+		{
+			"eventType": "variable",
+			"name": "Total_score",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 893223924355918
+		},
+		{
+			"eventType": "variable",
+			"name": "playerHP",
+			"type": "number",
+			"initialValue": "6",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 871000842618499
+		},
+		{
+			"eventType": "variable",
+			"name": "LivesLeft",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 669403542485351
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Menu Navigation",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [],
+			"sid": 199439709410094
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Functions",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "FadeIn",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "TB_fade",
+							"sid": 941150786774646,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 256200169265036
+				},
+				{
+					"functionName": "FadeOut",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "TB_fade",
+							"sid": 190856000336151,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "100",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 770320095260791
+				},
+				{
+					"functionName": "playerDeath",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "PlayerBox",
+							"sid": 408168384320705
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 432669542154335,
+							"parameters": {
+								"seconds": ".5"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "spr_start",
+							"sid": 101079591740454,
+							"parameters": {
+								"object": "player_particles",
+								"layer": "0",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "spr_start",
+							"sid": 526380270159304,
+							"parameters": {
+								"object": "PlayerBox",
+								"layer": "0",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 578311971724312
+				},
+				{
+					"functionName": "playerDeathTotal",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "PlayerBox",
+							"sid": 795818984446615
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 495863226751114,
+							"parameters": {
+								"seconds": ".5"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "spr_start",
+							"sid": 654410065405658,
+							"parameters": {
+								"object": "player_particles",
+								"layer": "0",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "spr_start",
+							"sid": 280124432209876,
+							"parameters": {
+								"object": "PlayerBox",
+								"layer": "0",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 805411791322971,
+							"parameters": {
+								"variable": "LivesLeft",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 921254129700653
+				},
+				{
+					"functionName": "enemyShooting",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "enemyUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 347389866050898
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 645835979256263,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "spr_drone",
+									"sid": 242762522079637,
+									"parameters": {
+										"unique-id": "enemyUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "spr_drone",
+									"sid": 151256089696950,
+									"parameters": {
+										"instance-variable": "canShoot",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 572663704065256,
+									"parameters": {
+										"group-name": "\"Movement\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "spr_drone",
+									"sid": 651382970583157,
+									"parameters": {
+										"object": "spr_bullet",
+										"layer": "\"player_layer\"",
+										"image-point": "1",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 634516491078006,
+									"parameters": {
+										"audio-file": "pew-lazer",
+										"loop": "not-looping",
+										"volume": "-14",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "spr_bullet",
+									"sid": 696941813985117,
+									"parameters": {
+										"angle": "angle(Self.X,Self.Y,player_sprite.X,player_sprite.Y)"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 300743406005096,
+									"parameters": {
+										"seconds": "2"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "spr_drone",
+									"sid": 779376149938538,
+									"parameters": {
+										"instance-variable": "canShoot",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "spr_drone",
+									"sid": 632413165752428,
+									"parameters": {
+										"instance-variable": "attacking",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 552706844239458
+						}
+					]
+				},
+				{
+					"functionName": "enemydisable",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "enemyUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 216789215034078
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 367092181476670,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "spr_drone",
+									"sid": 682955251265596,
+									"parameters": {
+										"unique-id": "enemyUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "spr_drone",
+									"sid": 920657151284681,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 688468026735202,
+									"parameters": {
+										"group-name": "\"Shooting\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 190712715496375,
+									"parameters": {
+										"seconds": "3"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "spr_drone",
+									"sid": 420356171692081,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"state": "enabled"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 187636095075764,
+									"parameters": {
+										"group-name": "\"Shooting\"",
+										"state": "activated"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "disable_effect",
+									"sid": 191481646906760
+								}
+							],
+							"sid": 610427170257772
+						}
+					]
+				}
+			],
+			"sid": 913718534317239
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Collectables",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "PlayerBox",
+							"sid": 242027483875907,
+							"parameters": {
+								"object": "spr_dataChip"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "spr_dataChip",
+							"sid": 643350065396035
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 546321353014311,
+							"parameters": {
+								"variable": "Score_lvl",
+								"value": "1"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 208568410039029,
+							"parameters": {
+								"variable": "Total_score",
+								"value": "1"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 825544434741085,
+							"parameters": {
+								"audio-file": "data_chip_pickup",
+								"loop": "not-looping",
+								"volume": "-26",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 463299573711515
+				}
+			],
+			"sid": 660560331290805
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Initialise",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 870535066619442
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "FadeIn",
+							"sid": 809691635788135
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 791316798757476,
+							"parameters": {
+								"variable": "playerHP",
+								"value": "6"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 998584018349263,
+							"parameters": {
+								"audio-file": "music_background",
+								"loop": "looping",
+								"volume": "-18",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 148145630003717,
+							"parameters": {
+								"audio-file": "wind rush",
+								"loop": "looping",
+								"volume": "-20",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "player_sprite",
+							"sid": 787077850995298,
+							"parameters": {
+								"instance-variable": "CanFire",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 904435711802853
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 382702214642229
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 884885166497947,
+							"parameters": {
+								"variable": "CurrentTime",
+								"value": "Date.GetUTCSeconds(Date.Now)"
+							}
+						},
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "player_sprite",
+							"sid": 866894466398765,
+							"parameters": {
+								"object": "PlayerBox",
+								"image-point-optional": "1"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "txt_score",
+							"sid": 403534368744651,
+							"parameters": {
+								"text": "Score_lvl"
+							}
+						},
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "spr_door_exitL1",
+							"sid": 442127665863018,
+							"parameters": {
+								"object": "end_level_L1",
+								"image-point-optional": "0"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "current_life",
+							"sid": 676220139984531,
+							"parameters": {
+								"text": "LivesLeft"
+							}
+						}
+					],
+					"sid": 209244111471407
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 772485973691501,
+							"parameters": {
+								"variable": "DisablerCooldown",
+								"comparison": 3,
+								"value": "CurrentTime"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "player_sprite",
+							"sid": 125801721149671,
+							"parameters": {
+								"instance-variable": "CanFire",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "radial_cooldown1",
+							"sid": 722055558333585,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "radial_cooldown1",
+							"sid": 681556480703267,
+							"parameters": {
+								"animation": "\"idle\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 883212801079712
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 552361904831523
+						}
+					],
+					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "HP_Bar",
+							"sid": 653500808973747,
+							"parameters": {
+								"width": "playerHP*18.5"
+							}
+						}
+					],
+					"sid": 380641887370416
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 182851967295186,
+							"parameters": {
+								"variable": "playerHP",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 286439037173410,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 953241159823740
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "FadeOut",
+									"sid": 524357757549304
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 572441806163121,
+									"parameters": {
+										"audio-file": "maledeath",
+										"loop": "not-looping",
+										"volume": "-18",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 150953435967545,
+									"parameters": {
+										"seconds": ".5"
+									}
+								},
+								{
+									"callFunction": "playerDeathTotal",
+									"sid": 752257400447055
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 510324064043120,
+									"parameters": {
+										"seconds": ".5"
+									}
+								},
+								{
+									"callFunction": "FadeIn",
+									"sid": 803682456039207
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 794782597661110,
+									"parameters": {
+										"variable": "playerHP",
+										"value": "6"
+									}
+								}
+							],
+							"sid": 977706804473043
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 874805006321580,
+							"parameters": {
+								"variable": "Score_lvl",
+								"comparison": 0,
+								"value": "10"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 626293424807541
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "chat_box",
+							"sid": 821518904188427,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "chat_box",
+							"sid": 505752085301575,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"chatbox\"",
+								"property": "offsetWidth",
+								"end-value": "216",
+								"time": ".15",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "0"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 521846267538912,
+							"parameters": {
+								"seconds": "7"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "chat_box",
+							"sid": 392110566554585,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"chatbox\"",
+								"property": "offsetWidth",
+								"end-value": "0",
+								"time": ".15",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "0"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 364622080730365,
+							"parameters": {
+								"seconds": ".15"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "chat_box",
+							"sid": 506736507533151,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 646560838905956
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 545649794453243,
+							"parameters": {
+								"variable": "Score_lvl",
+								"comparison": 0,
+								"value": "10"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 190285223513299
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 907717019960564,
+							"parameters": {
+								"seconds": ".5"
+							}
+						},
+						{
+							"id": "typewriter-text",
+							"objectClass": "chat_text",
+							"sid": 496724584579153,
+							"parameters": {
+								"text": "\"Good Job! that's fifty percent collected, keep moving!\"",
+								"duration": "3"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 897403190305242,
+							"parameters": {
+								"seconds": "6"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "chat_text",
+							"sid": 412482034581919,
+							"parameters": {
+								"text": "\"\""
+							}
+						}
+					],
+					"sid": 523615920151363
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 732758721608562,
+							"parameters": {
+								"variable": "Score_lvl",
+								"comparison": 0,
+								"value": "20"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 343666415175187
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "chat_box",
+							"sid": 909225490271942,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "chat_box",
+							"sid": 985914232778222,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"chatbox\"",
+								"property": "offsetWidth",
+								"end-value": "216",
+								"time": ".15",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "0"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 601454805076486,
+							"parameters": {
+								"seconds": "7"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "chat_box",
+							"sid": 879783845025763,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"chatbox\"",
+								"property": "offsetWidth",
+								"end-value": "0",
+								"time": ".15",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "0"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 681350334969247,
+							"parameters": {
+								"seconds": ".15"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "chat_box",
+							"sid": 114862585633856,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 600699157614714
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 760763528464007,
+							"parameters": {
+								"variable": "Score_lvl",
+								"comparison": 0,
+								"value": "20"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 863249776651755
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 488024305357838,
+							"parameters": {
+								"seconds": ".5"
+							}
+						},
+						{
+							"id": "typewriter-text",
+							"objectClass": "chat_text",
+							"sid": 752841460222904,
+							"parameters": {
+								"text": "\"You got all of them! keep a lookout for the EXIT\" ",
+								"duration": "3"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 247609018262833,
+							"parameters": {
+								"seconds": "6"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "chat_text",
+							"sid": 769321865899985,
+							"parameters": {
+								"text": "\"\""
+							}
+						}
+					],
+					"sid": 645884735080320
+				}
+			],
+			"sid": 344503610585868
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Player Death",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "PlayerBox",
+							"sid": 278445738297632,
+							"parameters": {
+								"object": "spr_collisionDeath"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 374566877856864,
+							"parameters": {
+								"audio-file": "maledeathscream",
+								"loop": "not-looping",
+								"volume": "-18",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 302604303753624,
+							"parameters": {
+								"seconds": ".25"
+							}
+						},
+						{
+							"callFunction": "FadeOut",
+							"sid": 404343533855663
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 103410915073905,
+							"parameters": {
+								"seconds": ".5"
+							}
+						},
+						{
+							"callFunction": "playerDeath",
+							"sid": 639726009566077
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 452684109578984,
+							"parameters": {
+								"seconds": ".5"
+							}
+						},
+						{
+							"callFunction": "FadeIn",
+							"sid": 321816038400496
+						}
+					],
+					"sid": 114701094453237
+				}
+			],
+			"sid": 348049636614963
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Level Exit",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "PlayerBox",
+							"sid": 337925092618783,
+							"parameters": {
+								"object": "end_level_L1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "spr_door_exitL1",
+							"sid": 359177777632745,
+							"parameters": {
+								"animation": "\"open\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 707360407351426,
+							"parameters": {
+								"seconds": ".5"
+							}
+						},
+						{
+							"callFunction": "FadeOut",
+							"sid": 155930336219003
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 911954922552545,
+							"parameters": {
+								"seconds": "1.0"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 821617703153771,
+							"parameters": {
+								"variable": "LivesLeft",
+								"value": "1"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 891987136624182,
+							"parameters": {
+								"audio-file": "going-to-the-next-level",
+								"loop": "not-looping",
+								"volume": "-14",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 122487429187103,
+							"parameters": {
+								"layout": "Level 2"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 236516251930952,
+							"parameters": {
+								"variable": "Score_lvl",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 163234240291454
+				}
+			],
+			"sid": 138286796853773
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Shooting",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-los-to-object",
+							"objectClass": "spr_drone",
+							"sid": 514974186592729,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"object": "PlayerBox",
+								"image-point": "0"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 135053854888296,
+							"parameters": {
+								"group-name": "\"Movement\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "spr_drone",
+							"sid": 423362532615420,
+							"parameters": {
+								"instance-variable": "attacking",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 944854047010612
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-los-to-object",
+							"objectClass": "spr_drone",
+							"sid": 569855200665796,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"object": "PlayerBox",
+								"image-point": "0"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "spr_drone",
+							"sid": 709902186892175,
+							"parameters": {
+								"instance-variable": "canShoot"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "enemyShooting",
+							"sid": 248551158836596,
+							"parameters": [
+								"spr_drone.UID"
+							]
+						}
+					],
+					"sid": 178159182344615
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "spr_drone",
+							"sid": 801260361598416,
+							"parameters": {
+								"instance-variable": "attacking"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 576922794858982,
+							"parameters": {
+								"group-name": "\"Movement\"",
+								"state": "deactivated"
+							}
+						}
+					],
+					"sid": 178898267208056
+				}
+			],
+			"sid": 702242135014016
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Movement",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 891143065044156
+						}
+					],
+					"actions": [],
+					"sid": 575191055038718,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "spr_drone",
+									"sid": 146075806732076,
+									"parameters": {
+										"instance-variable": "Direction",
+										"comparison": 0,
+										"value": "\"left\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "spr_drone",
+									"sid": 961239007394279,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"control": "left"
+									}
+								}
+							],
+							"sid": 221105804406995
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "spr_drone",
+									"sid": 201629655473813,
+									"parameters": {
+										"instance-variable": "Direction",
+										"comparison": 0,
+										"value": "\"right\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "spr_drone",
+									"sid": 279384333286913,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"control": "right"
+									}
+								}
+							],
+							"sid": 747911473167514
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 345371943160415
+				}
+			],
+			"sid": 721810850632322
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Collisions",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "spr_drone",
+							"sid": 100561925804536,
+							"parameters": {
+								"object": "spr_barriers"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 457598877380291,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "spr_drone",
+									"sid": 391416212865600,
+									"parameters": {
+										"instance-variable": "Direction",
+										"comparison": 0,
+										"value": "\"left\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "spr_drone",
+									"sid": 685085641956364,
+									"parameters": {
+										"instance-variable": "Direction",
+										"value": "\"right\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "spr_drone",
+									"sid": 977085145428405,
+									"parameters": {
+										"animation": "\"right\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 775754500200396
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 477139553993906
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "spr_drone",
+									"sid": 723582659374108,
+									"parameters": {
+										"instance-variable": "Direction",
+										"value": "\"left\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "spr_drone",
+									"sid": 174358000596020,
+									"parameters": {
+										"animation": "\"left\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 133387013501950
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "spr_bullet",
+							"sid": 260183997883755,
+							"parameters": {
+								"object": "spr_move_LR"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "spr_bullet",
+							"sid": 811411826123838
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "spr_bullet",
+							"sid": 463483187252470,
+							"parameters": {
+								"object": "bullet_hit",
+								"layer": "\"Collisions\"",
+								"image-point": "1",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 686944111778345,
+							"parameters": {
+								"seconds": ".25"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "bullet_hit",
+							"sid": 172796567433885
+						}
+					],
+					"sid": 637145975002782
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "spr_bullet",
+							"sid": 920639100651974,
+							"parameters": {
+								"object": "platform_tiles_L1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "spr_bullet",
+							"sid": 849500415886431
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "spr_bullet",
+							"sid": 924287760270341,
+							"parameters": {
+								"object": "bullet_hit",
+								"layer": "\"Collisions\"",
+								"image-point": "1",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 905211564766601,
+							"parameters": {
+								"seconds": ".25"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "bullet_hit",
+							"sid": 583570095352607
+						}
+					],
+					"sid": 749311738304804
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "spr_bullet",
+							"sid": 773436913448795,
+							"parameters": {
+								"object": "player_sprite"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "spr_bullet",
+							"sid": 658341010223455
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "spr_bullet",
+							"sid": 273890483395377,
+							"parameters": {
+								"object": "bullet_hit",
+								"layer": "\"Collisions\"",
+								"image-point": "1",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 323363183384814,
+							"parameters": {
+								"seconds": ".25"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "bullet_hit",
+							"sid": 742756292818706
+						}
+					],
+					"sid": 880270727202134
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "spr_bullet",
+							"sid": 305437327163285,
+							"parameters": {
+								"object": "player_sprite"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "player_sprite",
+							"sid": 449391460037870,
+							"parameters": {
+								"instance-variable": "takeHit",
+								"value": "true"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 843410006095404,
+							"parameters": {
+								"audio-file": "woundedexclamation",
+								"loop": "not-looping",
+								"volume": "-18",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 129214403760631,
+							"parameters": {
+								"variable": "playerHP",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 151176640113264,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "player_sprite",
+									"sid": 253615816816526,
+									"parameters": {
+										"instance-variable": "Direction",
+										"comparison": 0,
+										"value": "\"right\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "player_sprite",
+									"sid": 804864124731095,
+									"parameters": {
+										"animation": "\"player_hurt_R\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 530370940303147,
+									"parameters": {
+										"seconds": ".25"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "player_sprite",
+									"sid": 782264315750801,
+									"parameters": {
+										"instance-variable": "takeHit",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 751035281942774
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 895635957291447
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "player_sprite",
+									"sid": 547868523441411,
+									"parameters": {
+										"animation": "\"player_hurt_L\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 854691774774220,
+									"parameters": {
+										"seconds": ".25"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "player_sprite",
+									"sid": 413767651949420,
+									"parameters": {
+										"instance-variable": "takeHit",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 811640229028750
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "spr_disabler2",
+							"sid": 983998660400441,
+							"parameters": {
+								"object": "spr_drone"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "spr_disabler2",
+							"sid": 869031632802469,
+							"parameters": {
+								"object": "grapple_hit",
+								"layer": "\"Collisions\"",
+								"image-point": "1",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "spr_disabler2",
+							"sid": 592912992312027
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "spr_disabler2",
+							"sid": 746307870763032,
+							"parameters": {
+								"object": "disable_burst",
+								"layer": "\"player_layer\"",
+								"image-point": "1",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 406966325532935,
+							"parameters": {
+								"audio-file": "disabler_burst",
+								"loop": "not-looping",
+								"volume": "-14",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 479706486844522,
+							"parameters": {
+								"seconds": ".25"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "disable_burst",
+							"sid": 356622568161703
+						},
+						{
+							"id": "destroy",
+							"objectClass": "grapple_hit",
+							"sid": 942492337281390
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "spr_drone",
+							"sid": 228053026178933,
+							"parameters": {
+								"object": "disable_effect",
+								"layer": "\"Collisions\"",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 285207844517772,
+							"parameters": {
+								"audio-file": "static",
+								"loop": "not-looping",
+								"volume": "-14",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 517535845970058
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "disable_effect",
+							"sid": 737987599672182,
+							"parameters": {
+								"object": "spr_drone"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "enemydisable",
+							"sid": 286558304868196,
+							"parameters": [
+								"spr_drone.UID"
+							]
+						}
+					],
+					"sid": 213579992258325
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "spr_disabler2",
+							"sid": 535098851122354,
+							"parameters": {
+								"object": "platform_tiles_L1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "spr_disabler2",
+							"sid": 407979609734795,
+							"parameters": {
+								"object": "grapple_hit",
+								"layer": "\"Collisions\"",
+								"image-point": "1",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "spr_disabler2",
+							"sid": 528346176614126
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 655238816168612,
+							"parameters": {
+								"seconds": ".25"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "grapple_hit",
+							"sid": 640500618130485
+						}
+					],
+					"sid": 765220051127005
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "spr_disabler2",
+							"sid": 256705258785005,
+							"parameters": {
+								"object": "spr_move_LR"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "spr_disabler2",
+							"sid": 885408239743035,
+							"parameters": {
+								"object": "grapple_hit",
+								"layer": "\"Collisions\"",
+								"image-point": "1",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "spr_disabler2",
+							"sid": 321430823756314
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 401353781552397,
+							"parameters": {
+								"seconds": ".25"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "grapple_hit",
+							"sid": 351907088533721
+						}
+					],
+					"sid": 783098751202239
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "spr_disabler2",
+							"sid": 132275956717081,
+							"parameters": {
+								"object": "spr_lever"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "spr_disabler2",
+							"sid": 712743375112561,
+							"parameters": {
+								"object": "grapple_hit",
+								"layer": "\"Collisions\"",
+								"image-point": "1",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "spr_disabler2",
+							"sid": 540851393066097,
+							"parameters": {
+								"object": "disable_burst",
+								"layer": "\"player_layer\"",
+								"image-point": "1",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 955213449196800,
+							"parameters": {
+								"audio-file": "disabler_burst",
+								"loop": "not-looping",
+								"volume": "-14",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "spr_lever",
+							"sid": 138674526441898,
+							"parameters": {
+								"animation": "\"flipped\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "spr_disabler2",
+							"sid": 202205410003605
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 700049176321087,
+							"parameters": {
+								"audio-file": "metal-creak",
+								"loop": "not-looping",
+								"volume": "-14",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 581996948558775,
+							"parameters": {
+								"seconds": ".25"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 133476199199236,
+							"parameters": {
+								"audio-file": "metal-creak",
+								"loop": "not-looping",
+								"volume": "-14",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "disable_burst",
+							"sid": 404148515782814
+						},
+						{
+							"id": "destroy",
+							"objectClass": "grapple_hit",
+							"sid": 819617198782720
+						}
+					],
+					"sid": 109115847266735
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "spr_disabler2",
+							"sid": 780909018643378,
+							"parameters": {
+								"object": "spr_target"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "spr_disabler2",
+							"sid": 514044318612130,
+							"parameters": {
+								"object": "grapple_hit",
+								"layer": "\"Collisions\"",
+								"image-point": "1",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "spr_disabler2",
+							"sid": 156042912589009,
+							"parameters": {
+								"object": "disable_burst",
+								"layer": "\"player_layer\"",
+								"image-point": "1",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 840405131305539,
+							"parameters": {
+								"audio-file": "disabler_burst",
+								"loop": "not-looping",
+								"volume": "-14",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "spr_target",
+							"sid": 361735273814614,
+							"parameters": {
+								"animation": "\"Triggered\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "spr_disabler2",
+							"sid": 285075509311937
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 172317513948539,
+							"parameters": {
+								"seconds": ".25"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 890096914364402,
+							"parameters": {
+								"audio-file": "metal-creak",
+								"loop": "not-looping",
+								"volume": "-14",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "spr_gate_open",
+							"sid": 472073978190465,
+							"behaviorType": "Solid",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "spr_gate_open",
+							"sid": 471146443967452,
+							"parameters": {
+								"animation": "\"open\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "disable_burst",
+							"sid": 249501634574351
+						},
+						{
+							"id": "destroy",
+							"objectClass": "grapple_hit",
+							"sid": 760013537775120
+						}
+					],
+					"sid": 388822811494857
+				}
+			],
+			"sid": 566765455672775
+		}
+	],
+	"sid": 421524082344546
+}

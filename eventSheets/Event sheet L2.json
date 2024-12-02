@@ -1,0 +1,584 @@
+{
+	"name": "Event sheet L2",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Player Controls"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Event Sheet L1"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Initialise_L2",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 218776882690360
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 203250656913539,
+							"parameters": {
+								"seconds": "1.0"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "spr_door_entrance",
+							"sid": 854678607101610,
+							"parameters": {
+								"animation": "\"open\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 730212339604736,
+							"parameters": {
+								"seconds": ".25"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "spr_start",
+							"sid": 533792081684286,
+							"parameters": {
+								"object": "PlayerBox",
+								"layer": "\"player_layer\"",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "PlayerBox",
+							"sid": 653297779740295,
+							"parameters": {
+								"object": "player_sprite",
+								"layer": "\"player_layer\"",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 573043196528303
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 382832453690397
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "spr_door_entrance",
+							"sid": 706414530792892,
+							"parameters": {
+								"object": "spr_start",
+								"image-point-optional": "0"
+							}
+						},
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "player_sprite",
+							"sid": 851505232203837,
+							"parameters": {
+								"object": "PlayerBox",
+								"image-point-optional": "1"
+							}
+						}
+					],
+					"sid": 496334355775011
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Level Exit2",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "PlayerBox",
+									"sid": 495582919620862,
+									"parameters": {
+										"object": "end_level_L1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "spr_door_exitL1",
+									"sid": 108030551016008,
+									"parameters": {
+										"animation": "\"open\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 187906136357874,
+									"parameters": {
+										"seconds": ".5"
+									}
+								},
+								{
+									"callFunction": "FadeOut",
+									"sid": 170949098194934
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 269242740234481,
+									"parameters": {
+										"seconds": "1.0"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 880040718184010,
+									"parameters": {
+										"variable": "LivesLeft",
+										"value": "1"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 824717808136534,
+									"parameters": {
+										"audio-file": "going-to-the-next-level",
+										"loop": "not-looping",
+										"volume": "-14",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 550111242519299,
+									"parameters": {
+										"layout": "Level 2"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 179970006173556,
+									"parameters": {
+										"variable": "Score_lvl",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 787937287263766
+						}
+					],
+					"sid": 402424424712208
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 521085541445487
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 671811034537482,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "chat_box",
+							"sid": 424277301027669,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "chat_box",
+							"sid": 642403799494376,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"chatbox\"",
+								"property": "offsetWidth",
+								"end-value": "216",
+								"time": ".15",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "0"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 995360921164741,
+							"parameters": {
+								"seconds": "7"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "chat_box",
+							"sid": 721079499002877,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"chatbox\"",
+								"property": "offsetWidth",
+								"end-value": "0",
+								"time": ".15",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "0"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 339713093470448,
+							"parameters": {
+								"seconds": ".15"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "chat_box",
+							"sid": 713019234493678,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 850752425569607
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 893132079344501
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 736075943246210,
+							"parameters": {
+								"seconds": "1.5"
+							}
+						},
+						{
+							"id": "typewriter-text",
+							"objectClass": "chat_text",
+							"sid": 519529382004270,
+							"parameters": {
+								"text": "\"Watch out, there are many Drones ahead. Use your disabler wisely\"",
+								"duration": "3"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 700418599090860,
+							"parameters": {
+								"seconds": "6"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "chat_text",
+							"sid": 685724059319503,
+							"parameters": {
+								"text": "\"\""
+							}
+						}
+					],
+					"sid": 311641006391742
+				}
+			],
+			"sid": 135451380797281
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Collision_L2",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "spr_disabler2",
+							"sid": 526885266488470,
+							"parameters": {
+								"object": "platform_tiles_L2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "spr_disabler2",
+							"sid": 361173376721851,
+							"parameters": {
+								"object": "grapple_hit",
+								"layer": "\"Collisions\"",
+								"image-point": "1",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "spr_disabler2",
+							"sid": 103997165805816
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 536327360837273,
+							"parameters": {
+								"seconds": ".25"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "grapple_hit",
+							"sid": 764947583760401
+						}
+					],
+					"sid": 925385073170915
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "spr_bullet",
+							"sid": 456091811286234,
+							"parameters": {
+								"object": "spr_move_LR"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "spr_bullet",
+							"sid": 872713562022850
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "spr_bullet",
+							"sid": 515598852731519,
+							"parameters": {
+								"object": "bullet_hit",
+								"layer": "\"Collisions\"",
+								"image-point": "1",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 896237769733825,
+							"parameters": {
+								"seconds": ".25"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "bullet_hit",
+							"sid": 337180285091702
+						}
+					],
+					"sid": 898840186652574
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "spr_bullet",
+							"sid": 142852182597194,
+							"parameters": {
+								"object": "platform_tiles_L1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "spr_bullet",
+							"sid": 963971753272243
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "spr_bullet",
+							"sid": 731484721674857,
+							"parameters": {
+								"object": "bullet_hit",
+								"layer": "\"Collisions\"",
+								"image-point": "1",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 363259896604400,
+							"parameters": {
+								"seconds": ".25"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "bullet_hit",
+							"sid": 350368585063003
+						}
+					],
+					"sid": 552289992551783
+				}
+			],
+			"sid": 672705831401527
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Level Exit_L2",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "PlayerBox",
+							"sid": 752705527177243,
+							"parameters": {
+								"object": "end_level_L2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "spr_door_exitL2",
+							"sid": 215832503972639,
+							"parameters": {
+								"animation": "\"open\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 998324676810045,
+							"parameters": {
+								"seconds": ".5"
+							}
+						},
+						{
+							"callFunction": "FadeOut",
+							"sid": 258925776626928
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 387288422897586,
+							"parameters": {
+								"seconds": "1.0"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 471232091016779,
+							"parameters": {
+								"variable": "LivesLeft",
+								"value": "1"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 199275056006866,
+							"parameters": {
+								"audio-file": "going-to-the-next-level",
+								"loop": "not-looping",
+								"volume": "-14",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 298264115199672,
+							"parameters": {
+								"layout": "Level 3"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 706111168672987,
+							"parameters": {
+								"variable": "Score_lvl",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 192403217654400
+				}
+			],
+			"sid": 998958677770653
+		}
+	],
+	"sid": 205300272422375
+}
