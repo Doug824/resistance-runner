@@ -1,0 +1,15 @@
+{
+	"name": "tip3",
+	"plugin-id": "Text",
+	"sid": 198005561076721,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 909441819906524
+		}
+	],
+	"effectTypes": []
+}

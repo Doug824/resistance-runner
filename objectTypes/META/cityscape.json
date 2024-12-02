@@ -1,0 +1,28 @@
+{
+	"name": "cityscape",
+	"plugin-id": "TiledBg",
+	"sid": 780511659530990,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 594444842604846
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 2000,
+		"height": 360,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"fileType": "image/png",
+		"imageSpriteId": 9291496,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

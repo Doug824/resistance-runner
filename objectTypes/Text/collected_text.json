@@ -1,0 +1,15 @@
+{
+	"name": "collected_text",
+	"plugin-id": "Text",
+	"sid": 343035773998969,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 836795467717214
+		}
+	],
+	"effectTypes": []
+}

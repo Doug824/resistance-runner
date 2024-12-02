@@ -1,0 +1,28 @@
+{
+	"name": "TB_fade",
+	"plugin-id": "TiledBg",
+	"sid": 464298664209181,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 425498573063322
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 250,
+		"height": 250,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"fileType": "image/png",
+		"imageSpriteId": 46409,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

@@ -1,0 +1,29 @@
+{
+	"name": "platform_tiles_L1",
+	"plugin-id": "Tilemap",
+	"sid": 735671137818213,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 450444439216622
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 194,
+		"height": 290,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"fileType": "image/png",
+		"imageSpriteId": 6272783,
+		"useCollisionPoly": true,
+		"tag": ""
+	},
+	"tile-collision-polys": {}
+}

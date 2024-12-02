@@ -1,0 +1,15 @@
+{
+	"name": "current_life",
+	"plugin-id": "Text",
+	"sid": 981088930620051,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 832911781173605
+		}
+	],
+	"effectTypes": []
+}

@@ -1,0 +1,22 @@
+{
+	"name": "background_glow",
+	"plugin-id": "TiledBg",
+	"sid": 978466881638898,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 1801,
+		"height": 324,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"fileType": "image/png",
+		"imageSpriteId": 385807,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

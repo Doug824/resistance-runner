@@ -1,0 +1,15 @@
+{
+	"name": "txt_score",
+	"plugin-id": "Text",
+	"sid": 467965547873676,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 170049024202722
+		}
+	],
+	"effectTypes": []
+}

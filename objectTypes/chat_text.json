@@ -1,0 +1,15 @@
+{
+	"name": "chat_text",
+	"plugin-id": "Text",
+	"sid": 721484606848684,
+	"isGlobal": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 410285816659942
+		}
+	],
+	"effectTypes": []
+}
