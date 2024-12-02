@@ -1,0 +1,527 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 40702,
+	"name": "Resistance Runner",
+	"runtime": "c3",
+	"useWorker": "auto",
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Date",
+			"name": "Date",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Keyboard",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Particles",
+			"name": "Particles",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Tilemap",
+			"name": "Tilemap",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Bullet",
+			"name": "Bullet",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "EightDir",
+			"name": "8 Direction",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "LOS",
+			"name": "Line of sight",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Platform",
+			"name": "Platform",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Sin",
+			"name": "Sine",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "scrollto",
+			"name": "Scroll To",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "solid",
+			"name": "Solid",
+			"author": "Scirra",
+			"bundled": false
+		}
+	],
+	"uniqueId": "q7ynh15b023",
+	"objectTypes": {
+		"items": [
+			"chat_text",
+			"TITLE",
+			"Title_Border"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"Keyboard",
+					"Mouse",
+					"Audio",
+					"Date"
+				],
+				"subfolders": [],
+				"name": "Inputs"
+			},
+			{
+				"items": [
+					"PlayerBox",
+					"player_sprite",
+					"spr_dataChip",
+					"spr_disabler_connected",
+					"spr_disabler2"
+				],
+				"subfolders": [],
+				"name": "Player Sprites"
+			},
+			{
+				"items": [
+					"txt_score",
+					"collected_text",
+					"Life_Text",
+					"current_life",
+					"tip1",
+					"tip2",
+					"tip3"
+				],
+				"subfolders": [],
+				"name": "Text"
+			},
+			{
+				"items": [
+					"TB_fade",
+					"player_particles",
+					"bullet_hit",
+					"grapple_hit",
+					"disable_burst",
+					"disable_effect"
+				],
+				"subfolders": [],
+				"name": "Effects"
+			},
+			{
+				"items": [
+					"end_level_L1",
+					"spr_barriers",
+					"spr_collisionDeath",
+					"spr_start",
+					"HUD_Bar",
+					"grapple_imageFull",
+					"radial_cooldown1",
+					"HP_Bar",
+					"background_glow",
+					"cityscape",
+					"TiledBackground",
+					"background_tiles_L1",
+					"platform_tiles_L1",
+					"platform_tiles_L2",
+					"background_tiles_L2",
+					"chat_box",
+					"platform_tiles_L3",
+					"background_tiles_L3",
+					"end_level_L2"
+				],
+				"subfolders": [],
+				"name": "META"
+			},
+			{
+				"items": [
+					"spr_move_LR",
+					"spr_door_exitL1",
+					"spr_gate",
+					"spr_gate_open",
+					"spr_move_UD",
+					"spr_door_entrance",
+					"spr_door_exitL2"
+				],
+				"subfolders": [],
+				"name": "Platforms"
+			},
+			{
+				"items": [
+					"spr_drone",
+					"spr_bullet"
+				],
+				"subfolders": [],
+				"name": "Enemy Sprites"
+			},
+			{
+				"items": [
+					"spr_target",
+					"spr_lever"
+				],
+				"subfolders": [],
+				"name": "Targets"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Start Screen",
+			"Level 1",
+			"Level 2",
+			"Level 3"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"Start Screen E.S",
+			"Event Sheet L1",
+			"Event sheet L2",
+			"Player Controls"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [
+				{
+					"name": "wind rush.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 727871801273092,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "pew-lazer.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 468584911601258,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "woundedexclamation.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 992935158060889,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "maledeathscream.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 438882489861769,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "maledeath.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 988456318313846,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "scifi_rifle_reload.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 832291613514778,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "data_chip_pickup.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 308544402548551,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "disabler_burst.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 612180121587784,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "static.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 749503182632057,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "metal-creak.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 229080271941444,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "going-to-the-next-level.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 951589115726350,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"music": {
+			"items": [
+				{
+					"name": "music_background.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 556052082909961,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "startscreen.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 460306660413869,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 332442995350559,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 469993652485130,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 143997374603822,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 122624324629842,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 770587482809578,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 509484295988375,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 888181301105359,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [
+			"Timeline 1"
+		],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"flowcharts": {
+		"items": [],
+		"subfolders": []
+	},
+	"properties": {
+		"description": "",
+		"version": "1.0.0.0",
+		"author": "Phoenix",
+		"authorEmail": "",
+		"authorWebsite": "",
+		"appId": "",
+		"pixelRounding": true,
+		"zAxisScale": "normalized",
+		"fov": 0.7853981633974483,
+		"useLoaderLayout": false,
+		"fullscreenMode": "letterbox-integer-scale",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"orientations": "landscape",
+		"webgpu": "auto",
+		"gpuPreference": "high-performance",
+		"scriptsType": "module",
+		"framerateMode": "vsync",
+		"sampling": "nearest",
+		"downscaling": "medium",
+		"renderingMode": "auto",
+		"anisotropicFiltering": "auto",
+		"zNear": 1,
+		"zFar": 10000,
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "splash",
+		"preloadSounds": true,
+		"cordovaiOSScheme": "app",
+		"cordovaAndroidScheme": "https",
+		"autoReloadScriptsOnPreview": false,
+		"exportFileStructure": "folders",
+		"uidAllocationMode": "increment"
+	},
+	"viewportWidth": 576,
+	"viewportHeight": 352,
+	"firstLayout": "Level 1"
+}
