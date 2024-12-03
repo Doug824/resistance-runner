@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://sqgwtvkv3fm7"]
+
+[ext_resource type="Texture2D" uid="uid://cd0jlhx83ilmr" path="res://assets/sprites/player/player_sprite-idle_right-000.png" id="1_bcf7j"]
+[ext_resource type="Script" path="res://scripts/player_character.gd" id="1_vnk4p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_py205"]
+size = Vector2(12, 44)
+
+[node name="player" type="CharacterBody2D"]
+position = Vector2(0, 3)
+script = ExtResource("1_vnk4p")
+jump_power = 500.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -25)
+texture = ExtResource("1_bcf7j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -25)
+shape = SubResource("RectangleShape2D_py205")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -39)
