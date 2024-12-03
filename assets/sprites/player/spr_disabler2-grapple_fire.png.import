@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw7b0so8ohxab"
-path="res://.godot/imported/player_sprite-animation 1-000.png-1c2f5d4d84cf75b1cd8ee9c7d770a4e1.ctex"
+uid="uid://d0s8fki7nuglv"
+path="res://.godot/imported/spr_disabler2-grapple_fire.png-4f402dd814149e022d8223ffdcbb52c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/player/player_sprite-animation 1-000.png"
-dest_files=["res://.godot/imported/player_sprite-animation 1-000.png-1c2f5d4d84cf75b1cd8ee9c7d770a4e1.ctex"]
+source_file="res://assets/sprites/player/spr_disabler2-grapple_fire.png"
+dest_files=["res://.godot/imported/spr_disabler2-grapple_fire.png-4f402dd814149e022d8223ffdcbb52c4.ctex"]
 
 [params]
 

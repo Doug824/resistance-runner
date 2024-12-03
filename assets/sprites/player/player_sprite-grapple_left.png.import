@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw7b0so8ohxab"
-path="res://.godot/imported/player_sprite-animation 1-000.png-1c2f5d4d84cf75b1cd8ee9c7d770a4e1.ctex"
+uid="uid://dpu4i6tjs2xbk"
+path="res://.godot/imported/player_sprite-grapple_left.png-0172bf77cdc8d85a840e82dfcf55d8a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/player/player_sprite-animation 1-000.png"
-dest_files=["res://.godot/imported/player_sprite-animation 1-000.png-1c2f5d4d84cf75b1cd8ee9c7d770a4e1.ctex"]
+source_file="res://assets/sprites/player/player_sprite-grapple_left.png"
+dest_files=["res://.godot/imported/player_sprite-grapple_left.png-0172bf77cdc8d85a840e82dfcf55d8a2.ctex"]
 
 [params]
 
