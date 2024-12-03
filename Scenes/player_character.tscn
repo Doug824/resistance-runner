@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://sqgwtvkv3fm7"]
+
+[ext_resource type="Script" path="res://scripts/player_character.gd" id="1_vnk4p"]
+[ext_resource type="Texture2D" uid="uid://012arhnw7xpk" path="res://assets/sprites/player/player_sprite-idle_right.png" id="2_8bj56"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_py205"]
+size = Vector2(12, 44)
+
+[sub_resource type="Animation" id="Animation_vpeh1"]
+resource_name = "idle"
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_pa0xb"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wabc6"]
+_data = {
+"RESET": SubResource("Animation_pa0xb"),
+"idle": SubResource("Animation_vpeh1")
+}
+
+[node name="player" type="CharacterBody2D"]
+position = Vector2(0, 3)
+script = ExtResource("1_vnk4p")
+jump_power = 500.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -25)
+texture = ExtResource("2_8bj56")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -25)
+shape = SubResource("RectangleShape2D_py205")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -39)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wabc6")
+}
+autoplay = "idle"
